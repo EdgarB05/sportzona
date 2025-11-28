@@ -1,0 +1,231 @@
+/* ============================
+   1) LAYOUT GENERAL
+===============================*/
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f3f6fb;
+    display: flex;
+    height: 100vh;
+}
+
+/* ============================
+   2) SIDEBAR DEL ENTRENADOR
+===============================*/
+/* --- SIDEBAR COMPLETO --- */
+.sidebar-trainer {
+    width: 230px;
+    background: #0f172a;
+    height: 100vh;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar-logo {
+    font-size: 2rem;
+    color: #36b5ff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sidebar-item svg {
+    width: 22px;
+    height: 22px;
+}
+
+.sidebar-item:hover {
+    background: #1e293b;
+    color: #36b5ff;
+}
+
+.sidebar-item.active {
+    background: #1e293b;
+    border-left: 4px solid #36b5ff;
+    color: #36b5ff;
+}
+
+.sidebar-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* MOVER CONTENIDO PRINCIPAL */
+.main-content {
+    margin-left: 230px;
+    padding: 30px;
+}
+
+
+/* ============================
+   3) MAIN CONTENT
+===============================*/
+.main-content {
+    flex: 1;
+    padding: 25px 40px;
+    overflow-y: auto;
+}
+
+.topbar-trainer {
+    margin-bottom: 30px;
+}
+
+.topbar-trainer h1 {
+    margin: 0;
+    color: #1b263b;
+}
+
+.topbar-trainer p {
+    margin: 2px 0 0;
+    color: #415a77;
+}
+
+/* ============================
+   4) STATS CARDS
+===============================*/
+.stats-row {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1 1 250px;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(30, 30, 30, 0.08);
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 17px;
+    color: #1b263b;
+}
+
+.stat-number {
+    font-size: 34px;
+    margin: 10px 0 0;
+    font-weight: bold;
+    color: #0077b6;
+}
+
+/* ============================
+   5) LISTA DE ENTRENAMIENTOS
+===============================*/
+.trainings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.training-card {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.training-card h3 {
+    margin: 0 0 8px;
+    color: #1b263b;
+}
+
+.training-card p {
+    margin: 0;
+    color: #415a77;
+}
+
+.training-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-small {
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-edit {
+    background: #0096c7;
+    color: #fff;
+}
+
+.btn-delete {
+    background: #e63946;
+    color: #fff;
+}
+
+/* ============================
+   6) FORMULARIOS DE ENTRENAMIENTO
+===============================*/
+.form-container {
+    max-width: 600px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    margin: 20px auto;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.form-container h2 {
+    margin-top: 0;
+    color: #1b263b;
+}
+
+.label {
+    font-weight: bold;
+    color: #1b263b;
+    display: block;
+    margin-top: 15px;
+}
+
+.input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.btn-save {
+    margin-top: 25px;
+    width: 100%;
+    padding: 13px;
+    background: #0096c7;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-save:hover {
+    background: #0077b6;
+}
+

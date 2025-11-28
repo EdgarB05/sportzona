@@ -1,0 +1,183 @@
+/* =========== GLOBAL =========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, sans-serif;
+    background: #eef1ff;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========== SIDEBAR =========== */
+.sidebar {
+    width: 260px;
+    background: #121212;
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: width .3s ease;
+}
+
+.sidebar.collapsed {
+    width: 85px;
+}
+
+/* Header de la barra lateral (Sport Zona + botón) */
+.side-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+/* Título */
+.brand {
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Ocultar el texto cuando se colapsa */
+.sidebar.collapsed .brand {
+    opacity: 0;
+    width: 0;
+}
+
+/* Botón dentro del sidebar */
+.toggle-btn {
+    background: #4f6cff;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =========== MENÚ =========== */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: transparent;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.menu-item:hover {
+    background: #1f1f1f;
+}
+
+.menu-item.active {
+    background: #334366;
+}
+
+/* Oculta solo el texto (span) cuando está colapsado */
+.sidebar.collapsed .menu-item span {
+    display: none;
+}
+
+/* =========== FOOTER BAR (Cerrar sesión) =========== */
+.logout-bar {
+    margin-top: auto;
+    width: 100%;
+}
+
+.logout-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #c95f5f;
+    padding: 14px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    transition: background .2s;
+}
+
+.logout-bar a:hover {
+    background: #a64848;
+}
+
+/* Cuando se colapsa, dejamos solo el ícono centrado */
+.sidebar.collapsed .logout-bar a {
+    justify-content: center;
+}
+
+.sidebar.collapsed .logout-bar a span {
+    display: none;
+}
+
+/* =========== CONTENIDO =========== */
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Widget días */
+.dias-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    width: 240px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    margin-bottom: 20px;
+}
+
+.dias-widget h3 {
+    font-size: 16px;
+    color: #444;
+}
+
+.dias-widget .dias-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: #4f6cff;
+}
+
+.dias-widget.expirada .dias-num {
+    color: #b00020;
+}
+
+/* Texto de info o vacío */
+.membresia-aviso {
+    margin-top: 10px;
+}
+
+.empty-msg,
+.membresia-aviso p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 6px;
+}

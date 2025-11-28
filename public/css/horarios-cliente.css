@@ -1,0 +1,650 @@
+/* =========== GLOBAL =========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #eef1ff;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========== SIDEBAR =========== */
+
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #121212;
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+    min-width: 70px;
+    padding: 25px 10px;
+}
+
+/* Mostrar solo iconos cuando está colapsada */
+.sidebar.collapsed .menu-item span {
+    display: none;
+}
+
+/* Centrar iconos cuando está colapsado */
+.sidebar.collapsed .menu-item {
+    justify-content: center;
+}
+
+
+/* Header de sidebar */
+.side-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    /* NUEVO: que el brand + botón se queden siempre arriba */
+    position: sticky;
+    top: 0;
+    padding-bottom: 12px;
+    background: #121212;
+    z-index: 5;
+}
+
+
+.brand {
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sidebar.collapsed .brand {
+    opacity: 0;
+}
+
+/* Botón hamburguesa dentro del sidebar */
+.toggle-btn {
+    background: #4f6cff;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Menú */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: transparent;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    background: #1f1f1f;
+}
+
+.menu-item.active {
+    background: #334366;
+}
+
+/* Ocultar texto cuando está colapsado */
+.sidebar.collapsed .menu-item span {
+    display: none;
+}
+
+/* Barra de cerrar sesión pegada abajo */
+.logout-bar {
+    margin-top: auto;
+    width: 100%;
+}
+
+.logout-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #c95f5f;
+    padding: 14px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+}
+
+.logout-bar a:hover {
+    background: #a64848;
+}
+
+.sidebar.collapsed .logout-bar a span {
+    display: none;
+}
+
+/* =========== CONTENIDO =========== */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 4px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* ===========================
+   DISEÑO PREMIUM HORARIOS
+   =========================== */
+
+.horarios-title {
+    font-size: 40px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.horarios-title i {
+    font-size: 35px;
+    color: #4f6cff;
+}
+
+.horarios-sub {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* Tarjeta tipo glass */
+.horarios-card {
+    max-width: 650px;
+    padding: 32px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.6);
+    animation: horariosFadeIn .5s ease;
+}
+
+.horarios-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.horarios-header i {
+    font-size: 28px;
+    color: #4f6cff;
+}
+
+.horarios-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.horarios-body p {
+    font-size: 17px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.horarios-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    color: #666;
+}
+
+.horarios-note i {
+    color: #d98f00;
+}
+
+/* Animación suave */
+@keyframes horariosFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE básico */
+@media (max-width: 768px) {
+    .main-content { padding: 24px; }
+    .horarios-card { padding: 24px; }
+    .horarios-title { font-size: 32px; }
+}
+
+
+/* ============================
+   FORMULARIO NUTRICIONAL
+   ============================ */
+
+.nutrition-form {
+    margin-top: 10px;
+}
+
+/* Grid de campos con buena separación */
+.nutrition-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 32px;          /* filas / columnas */
+}
+
+/* Un campo que ocupa todo el ancho */
+.nutrition-form .form-group.full {
+    grid-column: 1 / -1;
+}
+
+.nutrition-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nutrition-form .form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Inputs, selects y textareas */
+.nutrition-form .form-group input,
+.nutrition-form .form-group select,
+.nutrition-form .form-group textarea {
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    background: #f8f9ff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nutrition-form .form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Efecto focus */
+.nutrition-form .form-group input:focus,
+.nutrition-form .form-group select:focus,
+.nutrition-form .form-group textarea:focus {
+    border-color: #4f6cff;
+    box-shadow: 0 0 0 2px rgba(79,108,255,0.25);
+    background: #ffffff;
+}
+
+/* Botón de enviar */
+.nutrition-actions {
+    margin-top: 28px;
+    text-align: right;
+}
+
+.btn-submit {
+    background: #4f6cff;
+    color: #ffffff;
+    border: none;
+    padding: 12px 34px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(79,108,255,0.35);
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-submit i {
+    font-size: 0.95rem;
+}
+
+.btn-submit:hover {
+    background: #3d55d6;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(79,108,255,0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(79,108,255,0.3);
+}
+
+/* Responsive: en móvil se vuelve una columna */
+@media (max-width: 900px) {
+    .nutrition-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============ FORMULARIO NUTRICIONAL ============ */
+
+.nutrition-card {
+    max-width: 980px;
+}
+
+.nutrition-card-header {
+    margin-bottom: 20px;
+}
+
+.nutrition-card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.nutrition-card-header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Contenedor principal del formulario */
+.nutrition-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Títulos de sección dentro del formulario */
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+    padding-bottom: 6px;
+}
+
+/* Grid de campos */
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 18px;
+}
+
+/* Cada campo */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.form-field.full {
+    grid-column: 1 / -1;
+}
+
+/* Etiquetas */
+.form-field label {
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Inputs, selects, textareas */
+.form-field input,
+.form-field select,
+.form-field textarea {
+    border-radius: 12px;
+    padding: 9px 11px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.form-field textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Estado focus */
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: #4f6cff;
+    box-shadow: 0 0 0 1px rgba(79, 108, 255, 0.35);
+    background: #ffffff;
+}
+
+/* Botón de enviar */
+.nutrition-actions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-nutri-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #4f6cff;
+    color: #ffffff;
+    border: none;
+    padding: 11px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(79, 108, 255, 0.4);
+    transition: transform .1s ease, box-shadow .1s ease, background .15s ease;
+}
+
+.btn-nutri-primary:hover {
+    background: #4358d8;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(79, 108, 255, 0.5);
+}
+
+.btn-nutri-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(79, 108, 255, 0.35);
+}
+
+/* Responsive: en móvil se vuelve una sola columna */
+@media (max-width: 900px) {
+    .nutrition-card {
+        max-width: 100%;
+    }
+
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar más delgada al colapsar (solo ESCRITORIO) */
+@media (min-width: 769px) {
+    .sidebar.collapsed {
+        width: 90px;
+    }
+
+    .sidebar.collapsed .brand {
+        opacity: 0;          /* ocultamos el texto, pero no el botón */
+    }
+
+    .sidebar.collapsed .menu-item span,
+    .sidebar.collapsed .logout-bar span {
+        display: none;       /* sólo iconos */
+    }
+}
+
+/* ===== Botón flotante móvil para abrir/cerrar la sidebar ===== */
+
+.mobile-toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: #4f6cff;
+    color: #ffffff;
+    display: none;              /* sólo en móvil */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    z-index: 80;
+}
+
+.mobile-toggle i {
+    font-size: 20px;
+}
+
+/* En móvil la barra se desliza hacia afuera y este botón queda siempre visible */
+@media (max-width: 768px) {
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 260px;
+        min-width: 260px;
+        background: #121212;
+        color: white;
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        transition: all .3s ease;
+        overflow: hidden;
+    }
+
+    .sidebar.collapsed {
+        width: 70px;
+        min-width: 70px;
+        padding: 25px 10px;
+    }
+
+
+    .main-content {
+        padding: 24px 16px;
+        margin-left: 0;                      /* contenido ocupa todo el ancho */
+    }
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    transition: margin-left .3s ease;
+}
+
+.sidebar-push {
+    margin-left: 0;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 70px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: absolute;
+        height: 100%;
+        z-index: 50;
+        left: 0;
+    }
+
+    .sidebar.collapsed {
+        left: -260px;
+    }
+
+    .sidebar-push {
+        margin-left: 0 !important;
+    }
+}
+
+/* ============================================
+   FIX: Sidebar responsive y botón hamburguesa
+   Solo controla el colapso — NO modifica estilos visuales
+============================================ */
+
+/* Evita que la sidebar se contraiga demasiado */
+.sidebar {
+    position: relative;
+    z-index: 100;
+    transition: width .3s ease, transform .3s ease;
+}
+
+/* Estado colapsado: solo se mueve un poco, no desaparece del todo */
+.sidebar.collapsed {
+    width: 80px !important;
+    min-width: 80px !important;
+    overflow: hidden;
+}
+
+/* Ocultar textos cuando colapsa */
+.sidebar.collapsed .menu-item span,
+.sidebar.collapsed .brand {
+    display: none;
+}
+
+/* Centrar iconos */
+.sidebar.collapsed .menu-item {
+    justify-content: center;
+}
+
+/* ==========================
+   MAIN responsivo con sidebar
+========================== */
+
+/* ==========================
+   MODO MÓVIL
+========================== */
+@media (max-width: 900px) {
+
+    /* Sidebar flota sobre el contenido */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(0);
+    }
+
+    /* Cuando colapsa en móvil la escondemos completamente */
+    .sidebar.collapsed {
+        transform: translateX(-260px);
+    }
+
+    /* El contenido siempre ocupa todo */
+    .sidebar ~ .main-content {
+        margin-left: 0 !important;
+    }
+}

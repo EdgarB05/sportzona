@@ -1,0 +1,47 @@
+.plan-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 22px;
+}
+
+.plan-form-grid .form-group.full {
+    grid-column: span 2;
+}
+
+.input {
+    background: #fff;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid #cfd3e1;
+    font-size: 15px;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #4f6cff;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.form-actions {
+    margin-top: 30px;
+    grid-column: span 2;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #4f6cff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #3d54d0;
+}
