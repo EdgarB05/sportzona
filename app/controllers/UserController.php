@@ -193,7 +193,7 @@ class UserController {
                     header("Location: index.php?controller=administrador&action=index");
                     exit;
                 case 'entrenador':
-                    header("Location: index.php?controller=entrenador&action=index");
+                    header("Location: index.php?controller=coach&action=index");
                     exit;
             }
         }
